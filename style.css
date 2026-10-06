@@ -566,3 +566,92 @@ video {
   }
 
 }
+/* =========================
+   FINAL HEAVEN PHOTO
+   ========================= */
+
+.final-photo-frame {
+  position: relative;
+
+  width: min(100%, 850px);
+
+  margin: 10px auto 30px;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  border: 2px solid rgba(255, 215, 110, .75);
+
+  box-shadow:
+    0 0 25px rgba(255, 200, 80, .4),
+    0 0 70px rgba(255, 170, 40, .2),
+    0 30px 70px rgba(0, 0, 0, .55);
+
+  animation: heavenPhoto 2.5s ease forwards;
+}
+
+.final-photo-frame img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  animation: finalZoom 14s ease-in-out forwards;
+}
+
+.from-sunil {
+  font-size: 22px !important;
+}
+
+
+/* FINAL PHOTO ARRIVAL */
+
+@keyframes heavenPhoto {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      scale(.82)
+      translateY(35px);
+
+    filter:
+      blur(10px)
+      brightness(2);
+  }
+
+  60% {
+    opacity: 1;
+
+    filter:
+      blur(0)
+      brightness(1.25);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      translateY(0);
+
+    filter:
+      brightness(1);
+  }
+}
+
+
+/* SLOW CINEMATIC ZOOM */
+
+@keyframes finalZoom {
+
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.06);
+  }
+
+}
