@@ -1,0 +1,413 @@
+/* =========================================
+   BASIC RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(145, 74, 255, 0.22), transparent 35%),
+    radial-gradient(circle at bottom, rgba(255, 155, 55, 0.18), transparent 35%),
+    linear-gradient(160deg, #10061f 0%, #1d0b32 48%, #09030f 100%);
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   FLOATING PARTICLES
+========================================= */
+
+#particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  bottom: -30px;
+  opacity: 0;
+  animation: floatUp linear infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 214, 105, 0.75));
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.65) rotate(0deg);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.75;
+  }
+
+  85% {
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: translateY(-115vh) scale(1.2) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================
+   SCREENS
+========================================= */
+
+.screen {
+  display: none;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+  padding: 28px 16px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.screen.active {
+  display: flex;
+  animation: screenFade 0.7s ease;
+}
+
+@keyframes screenFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+  width: min(92vw, 560px);
+  padding: 32px 22px;
+  border-radius: 28px;
+  background: rgba(28, 9, 49, 0.75);
+  border: 1px solid rgba(255, 220, 145, 0.28);
+  box-shadow:
+    0 22px 70px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(255, 180, 65, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.wide-card {
+  width: min(95vw, 930px);
+}
+
+.eyebrow {
+  margin-bottom: 13px;
+  color: #ffd778;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.05;
+  text-shadow: 0 0 20px rgba(255, 194, 78, 0.22);
+}
+
+.message {
+  max-width: 680px;
+  margin: 0 auto 26px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1rem, 3.9vw, 1.16rem);
+  line-height: 1.7;
+}
+
+.response-text {
+  min-height: 42px;
+  margin-top: 22px;
+  color: #ffe2a0;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+  appearance: none;
+  border: 0;
+  padding: 14px 22px;
+  margin: 6px;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #211104;
+  font-size: 1rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffd66b, #ff9d3c);
+  box-shadow:
+    0 8px 22px rgba(255, 157, 60, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:hover {
+  filter: brightness(1.06);
+  box-shadow:
+    0 10px 28px rgba(255, 157, 60, 0.32),
+    0 0 18px rgba(255, 215, 110, 0.14);
+}
+
+.secondary-button {
+  color: #fff4d8;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 220, 145, 0.28);
+  box-shadow: none;
+}
+
+.button-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px;
+}
+
+
+/* =========================================
+   IMAGE SECTIONS
+========================================= */
+
+.image-frame {
+  width: min(100%, 820px);
+  margin: 18px auto 24px;
+  padding: 6px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #ffd86d, #8747e9, #ff9e3c);
+  box-shadow:
+    0 0 28px rgba(255, 205, 93, 0.2),
+    0 24px 55px rgba(0, 0, 0, 0.4);
+}
+
+.image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 19px;
+}
+
+.final-frame {
+  max-width: 760px;
+}
+
+
+/* =========================================
+   DIVINE SLIDESHOW
+========================================= */
+
+.journey-card {
+  padding-top: 25px;
+}
+
+.journey-intro {
+  margin-bottom: 14px;
+}
+
+.journey-slideshow {
+  position: relative;
+  width: min(100%, 900px);
+  margin: 18px auto;
+  overflow: hidden;
+  border-radius: 26px;
+  background: #050505;
+  border: 2px solid rgba(255, 215, 120, 0.75);
+  box-shadow:
+    0 0 25px rgba(255, 190, 70, 0.35),
+    0 0 70px rgba(255, 150, 20, 0.12),
+    0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+.journey-slideshow img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.8s ease,
+    transform 5s ease;
+}
+
+.journey-slideshow img.zoom-in {
+  transform: scale(1.08);
+}
+
+.journey-slideshow img.fade-slide {
+  opacity: 0;
+}
+
+.journey-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.62), transparent 42%),
+    radial-gradient(circle at center, transparent 46%, rgba(20, 5, 0, 0.28) 100%);
+  box-shadow: inset 0 0 60px rgba(255, 190, 60, 0.11);
+}
+
+.journey-place {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  max-width: 88%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 9px 17px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.58);
+  color: #ffe6a0;
+  font-weight: 800;
+  font-size: clamp(0.9rem, 4vw, 1.25rem);
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 220, 140, 0.5);
+  text-shadow: 0 0 10px rgba(255, 200, 80, 0.6);
+}
+
+.journey-counter {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.52);
+  color: white;
+  font-size: 0.76rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.journey-message {
+  min-height: 54px;
+  max-width: 650px;
+  margin: 14px auto 18px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1rem, 3.8vw, 1.12rem);
+  line-height: 1.6;
+}
+
+.journey-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+/* =========================================
+   ENDING
+========================================= */
+
+.ending-card {
+  padding-bottom: 40px;
+}
+
+.blessing {
+  color: #ffe5a0;
+  text-shadow:
+    0 0 12px rgba(255, 215, 105, 0.45),
+    0 0 30px rgba(255, 163, 40, 0.18);
+}
+
+.signature {
+  margin: 22px auto;
+  color: #ffd99a;
+  font-size: clamp(1.05rem, 4vw, 1.26rem);
+  line-height: 1.7;
+  font-weight: 650;
+}
+
+
+/* =========================================
+   CELEBRATION EMOJIS
+========================================= */
+
+.celebration {
+  position: fixed;
+  top: -40px;
+  z-index: 50;
+  pointer-events: none;
+  animation: celebrationFall linear forwards;
+}
+
+@keyframes celebrationFall {
+  to {
+    transform: translateY(115vh) rotate(420deg);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .screen {
+    padding: 18px 12px;
+  }
+
+  .card {
+    padding: 27px 16px;
+    border-radius: 23px;
+  }
+
+  button {
+    width: min(100%, 310px);
+    padding: 14px 18px;
+  }
+
+  .journey-slideshow {
+    border-radius: 19px;
+  }
+
+  .journey-slideshow img {
+    border-radius: 17px;
+  }
+
+  .journey-place {
+    bottom: 11px;
+  }
+}
